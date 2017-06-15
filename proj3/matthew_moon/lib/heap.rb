@@ -45,7 +45,7 @@ class BinaryMinHeap
   end
 
   def self.heapify_down(array, parent_idx, len = array.length, &prc)
-    block = prc ? prc : Proc.new { |a,b| a <=> b }
+    block = block_given? ? prc : Proc.new { |a,b| a <=> b }
     incomplete_heap = true
     while incomplete_heap
       incomplete_heap = false
@@ -65,7 +65,7 @@ class BinaryMinHeap
   end
 
   def self.heapify_up(array, child_idx, len = array.length, &prc)
-    block = prc ? prc : Proc.new { |a,b| a <=> b }
+    block = block_given? ? prc : Proc.new { |a,b| a <=> b }
     incomplete_heap = true
     while incomplete_heap
       incomplete_heap = false
