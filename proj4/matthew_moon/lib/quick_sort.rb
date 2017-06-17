@@ -9,11 +9,11 @@ class QuickSort
 
   # In-place.
   def self.sort2!(array, start = 0, length = array.length, &prc)
-
-    pivot_idx = QuickSort.partition(array, start, array.length)
-    right = QuickSort.sort2!(array, pivot_idx, array.length - pivot_idx)
-    left = QuickSort.sort2!(array, 0, pivot_idx)
-    return left + right
+    # 
+    # pivot_idx = QuickSort.partition(array, start, array.length)
+    # right = QuickSort.sort2!(array, pivot_idx, array.length - pivot_idx)
+    # left = QuickSort.sort2!(array, 0, pivot_idx)
+    # return left + right
   end
 
   def self.partition(array, start, length, &prc)
