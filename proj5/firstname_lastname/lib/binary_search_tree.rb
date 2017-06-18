@@ -73,14 +73,8 @@ class BinarySearchTree
     left_balance = tree_node.left ? is_balanced?(tree_node.left) : true
     right_balance = tree_node.right ? is_balanced?(tree_node.right) : true
 
-    balanced = left_balance && right_balance
-    diff = (left - right)
-
-    if diff.abs <= 1 && balanced
-      return true
-    else
-      return false
-    end
+    return true if ((left - right).abs) <= 1 && (left_balance && right_balance)
+    false
   end
 
   def in_order_traversal(tree_node = @root, arr = [])
