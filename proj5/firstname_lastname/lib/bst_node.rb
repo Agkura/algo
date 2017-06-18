@@ -15,4 +15,11 @@ class BSTNode
     left.nil?
   end
 
+  def has_1_child
+    right_empty? || left_empty?
+  end
+
+  def childless?
+    right_empty? && left_empty?
+  end
 end
