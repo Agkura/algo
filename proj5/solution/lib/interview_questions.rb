@@ -29,7 +29,16 @@ def pre_order_traversal
 end
 
 # In Order Iterative:
-
+def in_order_iterative
+  #1 create an empty stack
+  #2 initialize curent node as root
+  #2 push current into stack and set current as currentleft until current is nil
+  #4. if current i nill and stack isnt empty
+    #op top and print
+    #set current to poppedright
+    #go back to 3
+  #5 if all nil done
+end
 
 
 # LCA:
