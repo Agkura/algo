@@ -13,20 +13,9 @@ require 'topological_sort'
 def install_order(arr)
   hashed = {}
   arr.each do | tuple |
-    to_vertex, from_vertex = nil, nil
-    if hashed[tuple[0]]
-      to_vertex = hashed[tuple[0]]
-    else
-      hashed[tuple[0]] = Vertex.new(tuple[0])
-      to_vertex = hashed[tuple[0]]
-    end
-    if hashed[tuple[1]]
-      from_vertex = hashed[tuple[1]]
-    else
-      hashed[tuple[1]] = Vertex.new(tuple[1])
-      from_vertex = hashed[tuple[1]]
-    end
-    Edge.new(from_vertex, to_vertex)
+    hashed[tuple[0]] = Vertex.new(tuple[0]) unless hashed[tuple[0]]
+    hashed[tuple[1]] = Vertex.new(tuple[1]) unless hashed[tuple[1]]
+    Edge.new(hashed[tuple[1]], hashed[tuple[0]])
   end
   (1..hashed.keys.max).to_a.each { | id | hashed[id] = Vertex.new(id) unless hashed[id] }
   topological_sort(hashed.values).map { |vert| vert.value }
